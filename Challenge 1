@@ -1,0 +1,17 @@
+'the first of the challenges'
+low=int(2000)
+high=int(3200)
+temp=int()
+count=int(1);
+printout=""
+'alternatively use range'
+
+for i in range(low, high+1):
+    if ((i)%5==0):
+        'not part of printout'
+    elif ((i)%7==0):
+        printout+=str(i)+","
+    else: 'not part of printout'
+else:
+    printout=printout.strip(",")
+    print (printout)
