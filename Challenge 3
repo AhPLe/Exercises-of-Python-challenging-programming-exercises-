@@ -1,0 +1,26 @@
+import array
+print('Enter a number to generate dictionary of squares:')
+inputvalue=input()
+'check if number is an int'
+if (not inputvalue.isdigit()):
+    print('input was not a number, please input a number between 0 and 2147483647:')
+    inputvalue=input()
+    if (not inputvalue.isdigit()):
+        print('please run program again, this program expects an integer')
+    else: 'input is good, can exit if'
+else: 'input is good, can exit if'
+number=int(inputvalue)
+output=str()
+square_dictionary_array=array.array('I',)
+
+for i in range(0, number):
+    square_dictionary_array.append((i+1)*(i+1))
+else:
+    output+="{"
+    for i in range(0, number):
+        output+=str(i+1)+': ' + str(square_dictionary_array[i])+ ', '
+    else:
+        output=output.strip(", ")
+        output+="}"
+print (output)
+'statement end'
