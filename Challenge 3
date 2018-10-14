@@ -1,3 +1,4 @@
+'original attempt was used with input instead of raw_input and does not use dict() object'
 import array
 print('Enter a number to generate dictionary of squares:')
 inputvalue=input()
