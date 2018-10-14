@@ -3,7 +3,7 @@ print('Enter the number to perform the factorial function:')
 inputvalue=input()
 'check if number is an int'
 if (not inputvalue.isdigit()):
-    print('input was not a number, please input a number between 0 and x:')
+    print('input was not a number, please input a number between 0 and 2147483647:')
     inputvalue=input()
     if (not inputvalue.isdigit()):
         print('please run program again, this program expects an integer')
