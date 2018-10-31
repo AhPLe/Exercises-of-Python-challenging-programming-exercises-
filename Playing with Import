@@ -1,0 +1,6 @@
+# HelloFunction.py
+def HelloFunction():
+    print("Printed Message is Hello")
+    
+def main():
+    print ("Not Hello")
