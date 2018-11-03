@@ -1,0 +1,16 @@
+'Function gets a string, function prints a string, and function tests a string'
+class SimpleString:
+    def getString():
+        print("Please enter a phrase")
+        InputValue = input()
+        return InputValue
+
+    def printString(OutputValue):
+        print(OutputValue)
+        return
+
+def testFunction():
+    SimpleString.printString(SimpleString.getString())
+    'will test function parameters'
+    return
+testFunction()
