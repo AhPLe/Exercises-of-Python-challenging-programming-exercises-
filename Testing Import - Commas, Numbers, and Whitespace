@@ -1,0 +1,46 @@
+
+import importlib
+#import string.Formatter.py
+#whitespace: 0, 32, 127, 160, or 9-13
+#comma: 44
+#numbers 30-39 for unicode
+GoodCommaNumbers = 44
+def CommaNumberStr(RawInputValue):
+    
+    GoodBool = True
+    
+    for i in range(0, len(RawInputValue)):
+        #test for number
+        #alternative if (ord(TupleInput[i])>160)
+        #print("i is " + str(i))
+        #print("Raw Input Value is " + str(RawInputValue[i]))
+        print("ord of RIV is " + str(ord(str(RawInputValue[i]))))
+                
+        if (ord(str(RawInputValue[i]))>47) and (ord(str(RawInputValue[i]))<58):
+            continue
+            
+        #test for single white text or comma
+        elif (str(RawInputValue[i]).isspace()) or (ord(str(RawInputValue[i]))==GoodCommaNumbers):
+              continue
+        else:
+            GoodBool = False
+            return GoodBool
+            continue
+
+    return GoodBool
+
+def testCNS():
+    #testing for numbers and commas
+    print("test case 10,9,8,765,4,3,21")
+    print(CommaNumberStr("10,9,8,765,4,3,21"))
+    print("test case ' 10,  9,8 ,7  65,4,3 , 21  '")
+    print(CommaNumberStr(" 10,  9,8 ,7  65,4,3 , 21  "))
+    print("test case 10,9,s341, 366332")
+    print(CommaNumberStr("10,9,s341, 366332"))
+    print("test case m10,432,,,8")
+    print(CommaNumberStr("m10,432,,,8"))
+    print("test case ,,,10,432,8:")
+    print(CommaNumberStr(",,,10,432,8:"))
+
+
+testCNS()
