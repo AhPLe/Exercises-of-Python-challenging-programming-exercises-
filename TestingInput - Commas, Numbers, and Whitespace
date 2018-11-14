@@ -1,9 +1,7 @@
-
 import importlib
-#import string.Formatter.py
 #whitespace: 0, 32, 127, 160, or 9-13
 #comma: 44
-#numbers 30-39 for unicode
+#numbers 30-39 for unicode - edit: numbers were 48-57
 GoodCommaNumbers = 44
 def CommaNumberStr(RawInputValue):
     
@@ -43,4 +41,4 @@ def testCNS():
     print(CommaNumberStr(",,,10,432,8:"))
 
 
-testCNS()
+
