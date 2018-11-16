@@ -1,0 +1,31 @@
+'list and tuple created from comma-separated numbers'
+'check that there is a comma-separated list'
+import importlib
+import TestingInput
+
+InputValue = str("67, 54, 38, 26")
+print("Please list a comma-separated string of numbers")
+#InputValue = input()
+print(InputValue)
+InputChanged = ""
+print(InputValue)
+#InputValue.replace(" ", "") did not work, manually removing
+for i in range(0, len(InputValue)):
+    if ((InputValue[i]) != " "):
+        InputChanged = InputChanged + InputValue[i]
+
+CopyTuple = tuple
+OutputList = list()
+'take comma-separated list and create output of list and tuple'
+
+if (TestingInput.CommaNumberStr(InputChanged)):
+    OutputList=InputChanged.split(",")
+    OutputTuple = tuple(OutputList)
+    
+    print(OutputList)
+    print(OutputTuple)
+    
+else: print("input had non-whitespace, comma, or number character. Please restart program and use only a number, whitespace, or comma character")
+
+
+'statement end'
