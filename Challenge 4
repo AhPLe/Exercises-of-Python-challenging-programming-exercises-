@@ -6,9 +6,7 @@ import TestingInput
 
 print("Please list a comma-separated string of numbers")
 InputValue = input()
-print(InputValue)
 InputChanged = ""
-print(InputValue)
 #InputValue.replace(" ", "") did not work, manually removing
 for i in range(0, len(InputValue)):
     if ((InputValue[i]) != " "):
