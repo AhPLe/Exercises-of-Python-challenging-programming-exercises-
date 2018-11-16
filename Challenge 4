@@ -3,9 +3,9 @@
 import importlib
 import TestingInput
 
-InputValue = str("67, 54, 38, 26")
+
 print("Please list a comma-separated string of numbers")
-#InputValue = input()
+InputValue = input()
 print(InputValue)
 InputChanged = ""
 print(InputValue)
