@@ -1,0 +1,11 @@
+import math
+
+def SimpleFormula(InputString):
+    C = 50
+    H = 30
+    #DValue is InputNumber
+    D = int(InputString)
+    print(math.floor(math.sqrt(2*C*D/H)))
+    return math.floor(math.sqrt(2*C*D/H))
+print("input a number")
+SimpleFormula(input())
