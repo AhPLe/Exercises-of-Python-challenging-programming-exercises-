@@ -1,0 +1,19 @@
+#Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
+#Suppose the following input is supplied to the program:
+#Hello world
+#Practice makes perfect
+#Then, the output should be:
+#HELLO WORLD
+#PRACTICE MAKES PERFECT
+import importlib
+import string
+
+print("input What you would like capitalized")
+InputValue = input()
+lcase = string.ascii_lowercase
+ucase = string.ascii_uppercase
+if (len(InputValue)>0):
+    for j in range (0, len(lcase)):
+        InputValue = InputValue.replace(lcase[j], ucase[j]            
+    
+print(InputValue)
