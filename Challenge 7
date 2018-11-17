@@ -1,0 +1,31 @@
+import importlib
+import TestingInput
+#import array - challenge doesn't want a resistricted array
+#a restricted array of ints would mean there is no double array
+
+print("Please list two comma-separated numbers to form a 2d array")
+InputValue = input()
+InputChanged = ""
+for i in range(0, len(InputValue)):
+    if ((InputValue[i]) != " "):
+        InputChanged = InputChanged + InputValue[i]
+DoubleArray = list()
+if (TestingInput.CommaNumberStr(InputChanged)):
+    InputList = InputChanged.split(",")
+    xdim = int(InputList[0])
+    ydim = int(InputList[1])
+    print("" + str(xdim) + " " + str(ydim))
+    TempList = list()
+    TempArray = list()
+    if (xdim > 100) or (ydim > 100):
+        print("one of your numbers was too large, please try again")
+    else:
+        for i in range (0, xdim):
+            for j in range (0, ydim):
+                TempList.append(i*j)
+                if (j == ydim - 1):
+                    TempArray = TempList
+                    DoubleArray.append(TempArray)
+                    TempArray = list()
+                    TempList = list()
+print(DoubleArray)
