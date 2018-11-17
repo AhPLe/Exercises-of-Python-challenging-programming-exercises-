@@ -6,18 +6,13 @@ import TestingInput
 
 print("Please list a comma-separated string of numbers")
 InputValue = input()
-InputChanged = ""
-#InputValue.replace(" ", "") did not work, manually removing
-for i in range(0, len(InputValue)):
-    if ((InputValue[i]) != " "):
-        InputChanged = InputChanged + InputValue[i]
-
+InputValue = InputValue.replace(" ", "")
 CopyTuple = tuple
 OutputList = list()
 'take comma-separated list and create output of list and tuple'
 
-if (TestingInput.CommaNumberStr(InputChanged)):
-    OutputList=InputChanged.split(",")
+if (TestingInput.CommaNumberStr(InputValue)):
+    OutputList=InputValue.split(",")
     OutputTuple = tuple(OutputList)
     
     print(OutputList)
