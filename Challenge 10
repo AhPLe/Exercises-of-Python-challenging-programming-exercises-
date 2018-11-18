@@ -12,11 +12,14 @@ InputValue = input()
 InputList = InputValue.split()
 InputList.sort()
 OutputList = list()
-OutputList.append(InputList[0])
+#OutputList.append(InputList[0])
+TheOutput = "" + InputList[0]
 if (len(InputList)>1):
     for i in range(1, len(InputList) - 1):
         if (InputList[i] == InputList[i-1]):
             continue
         else:
-            OutputList.append(InputList[i])
-print(OutputList)
+            TheOutput = TheOutput + " " + InputList[i]
+            #OutputList.append(InputList[i])
+
+print(TheOutput)
