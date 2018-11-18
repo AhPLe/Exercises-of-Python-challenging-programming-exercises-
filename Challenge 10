@@ -1,0 +1,24 @@
+#Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
+#Suppose the following input is supplied to the program:
+#hello world and practice makes perfect and hello world again
+#Then, the output should be:
+#again and hello makes perfect practice world
+
+import importlib
+import string
+
+print("please input words to be sorted, space is used as a delimiter")
+InputValue = input()
+InputList = InputValue.split()
+InputList.sort()
+print(InputList)
+OutputList = list()
+OutputList.append(InputList[0])
+if (len(InputList)>1):
+    for i in range(1, len(InputList) - 1):
+        print(i)
+        if (InputList[i] == InputList[i-1]):
+            continue
+        else:
+            OutputList.append(InputList[i])
+print(OutputList)
