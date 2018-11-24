@@ -1,0 +1,21 @@
+#Write a program, which will find all such numbers between 1000
+#and 3000 (both included) such that each digit of the number is an
+#even number.
+#The numbers obtained should be printed in a comma-separated
+#sequence on a single line.
+
+
+StartInt = 1000
+EndInt = 3000
+print("finding all numbers between " + str(StartInt) + " and " + str(EndInt) + " that are even.")
+ToPrint = ""
+for i in range (StartInt, EndInt + 1):
+    TempStr = str(i)
+    for j in range (0, len(TempStr)):
+        if (int(TempStr[j])%2 != 0):
+            break
+        else:
+            if (j == (len(TempStr) - 1)):
+                ToPrint = ToPrint + "," + TempStr
+ToPrint = ToPrint.strip(",")
+print(ToPrint)
