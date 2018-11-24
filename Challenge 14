@@ -1,0 +1,33 @@
+#Question 14
+#Level 2
+
+#Question:
+#Write a program that accepts a sentence and calculate the number of upper case
+#letters and lower case letters.
+#Suppose the following input is supplied to the program:
+#Hello world!
+#Then, the output should be:
+#UPPER CASE 1
+#LOWER CASE 9
+
+print("please input a sentence")
+InputValue = input()
+NumUpCLetters = 0
+NumLowCLetters = 0
+LetterLow = 96
+LetterHigh = 123
+CLetterLow = 65
+CLetterHigh = 91
+TempUniChar = 0
+for i in range (0, len(InputValue)):
+    TempUniChar = ord(InputValue[i])
+    if (TempUniChar > LetterLow ) and (TempUniChar < LetterHigh):
+        NumUpCLetters +=1
+    elif (TempUniChar > CLetterLow) and (TempUniChar < CLetterHigh):
+        NumLowCLetters +=1
+    else:
+        continue #character is neither a letter or a digit, do nothing
+
+
+print("UPPER CASE " + str(NumUpCLetters) + chr(10) + chr(13) + "LOWER CASE " + str(NumLowCLetters))
+#catch exception for range, print("There was no input")
