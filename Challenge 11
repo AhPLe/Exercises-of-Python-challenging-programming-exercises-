@@ -1,0 +1,47 @@
+#Write a program which accepts a sequence of comma separated
+#4 digit binary numbers as its input and then check
+#whether they are divisible by 5 or not.
+#The numbers that are divisible by 5 are to be printed in a
+#comma separated sequence.
+#Example:
+#0100,0011,1010,1001
+#Then the output should be:
+#1010
+#Notes: Assume the data is input by console.
+
+import importlib
+import TestingInput
+import math
+
+print("please input a comma separated 4 digit binary input to check if they are divisible by 5")
+InputValue = input()
+#test case - InputValue = "0101,1101,1111,1110"
+To_Print = ""
+TempInt = 0
+DigitMultiplier = 4
+ToReturn = True
+if (TestingInput.CommaNumberStr(InputValue)):
+    InputList = InputValue.split(",")
+    if (len(InputList)>0):
+        for i in range (0, len(InputList)):
+            if (len(InputList[i])!=4):
+                print("one input was not 4 digits long")
+                ToReturn = False
+                break
+            else:
+                for j in range (0, len(InputList[i])):
+                    if (InputList[i][j] == "1"):
+                        # pretty much all logic in this statement should be checked
+                        TempInt = TempInt + 2**(DigitMultiplier - 1 - j)
+                    else:
+                        if (InputList[i][j] != "0"):
+                            print("one input was not a binary string")
+                            ToReturn = False
+                    if (j == (len(InputList[i]) - 1)):
+                        if (TempInt%5 == 0 ):
+                            To_Print = To_Print + "," + InputList[i]
+                        TempInt = 0
+To_Print = To_Print.strip(",")
+print(To_Print)
+
+
