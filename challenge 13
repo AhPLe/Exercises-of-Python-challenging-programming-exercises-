@@ -1,0 +1,35 @@
+#Question 13
+#Level 2
+
+#Question:
+#Write a program that accepts a sentence and calculate the number of letters and digits.
+#Suppose the following input is supplied to the program:
+#hello world! 123
+#Then, the output should be:
+#LETTERS 10
+#DIGITS 3
+
+
+print("please input a sentence")
+InputValue = input()
+NumLetters = 0
+NumDigits = 0
+DigitLow = 47
+DigitHigh = 58 #digits are between 48 and 57
+LetterLow = 96
+LetterHigh = 123
+CLetterLow = 65
+CLetterHigh = 91
+TempUniChar = 0
+for i in range (0, len(InputValue)):
+    TempUniChar = ord(InputValue[i])
+    if ((TempUniChar > LetterLow ) and (TempUniChar < LetterHigh)) or ((TempUniChar > CLetterLow) and (TempUniChar < CLetterHigh)):
+        NumLetters +=1
+    elif (TempUniChar > DigitLow) and (TempUniChar < DigitHigh):
+        NumDigits +=1
+    else:
+        continue #character is neither a letter or a digit, do nothing
+
+
+print("LETTERS " + str(NumLetters) + chr(10) + chr(13) + "DIGITS " + str(NumDigits))
+#catch exception for range, print("There was no input")
