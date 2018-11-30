@@ -1,0 +1,31 @@
+#Question 16
+#Level 2
+
+#Question:
+#Use a list comprehension to square each odd number in a list.
+## the given problem seems wrong, the output now just outputs the odd numbers
+##the change to make them square is line 26, from str(tempInt) to str(tempInt*tempInt)
+#The list is input by a sequence of comma-separated numbers.
+#Suppose the following input is supplied to the program:
+#1,2,3,4,5,6,7,8,9
+#Then, the output should be:
+#1,3,5,7,9
+
+import importlib
+import TestingInput
+
+print("Input a comma-separated sequence of numbers, the odd numbers will be returned square")
+InputValue = input()
+output = ""
+if TestingInput.CommaNumberStr(InputValue):
+    #input is good
+    InputList = InputValue.split(",")
+    for i in range(0, len(InputList)):
+        tempInt = int(InputList[i].strip())
+        if (tempInt%2 != 0):
+            output = output + "," + str(tempInt)
+        else:
+            continue
+else: print("you did not input a correct string, exiting")
+output = output.strip(",")
+print(output)
