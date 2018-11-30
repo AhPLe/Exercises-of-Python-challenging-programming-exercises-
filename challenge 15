@@ -1,0 +1,36 @@
+#Question 15
+#Level 2
+
+#Question:
+#Write a program that computes the value of a+aa+aaa+aaaa with a given
+#digit as the value of a.
+#Suppose the following input is supplied to the program:
+#9
+#Then, the output should be:
+#11106
+
+repeatStop = 5
+additionLoop = 4
+lowDigit = 47
+highDigit = 58
+outputNum = 0
+baseNum = 10
+
+for i in range(0, repeatStop):
+    print("Please input one digit to calculate the value of a+aa+aaa+aaaa")
+    InputValue = input()
+    InputValue = InputValue.strip()
+    if (len(InputValue) > 0 and len(InputValue) < 2):
+        #test for input
+        if (ord(InputValue) > lowDigit and ord(InputValue) < highDigit):
+            for j in range (1, additionLoop + 1):
+                for k in range (j, additionLoop + 1):
+                    outputNum = outputNum + int(InputValue)*baseNum**(j-1)
+        else:
+            print("you did not input a number, please enter one integer")
+            continue
+        print(str(outputNum))
+        break
+    else:
+        print("your value was more than one digit, please enter one integer")
+        continue
