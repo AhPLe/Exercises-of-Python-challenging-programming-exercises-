@@ -1,0 +1,110 @@
+##I realize this is a bit long, but I initially tried to use just the input() function instead of storing in a text file
+##It seemed longer than necessary to find out how to take inputs with line end characters, so I switched to text
+##that said, the rest of the program works and I may come back to clean up, make it shorter, or make it more legible.
+##then again, these are just challenges so it could also just be good enough as is.
+
+#Question 17
+#Level 2
+
+#Question:
+#Write a program that computes the net amount of a bank account
+#based a transaction log from console input.
+#The transaction log format is shown as following:
+#D 100
+#W 200
+
+#D means deposit while W means withdrawal.
+#Suppose the following input is supplied to the program:
+#D 300
+#D 300
+#W 200
+#D 100
+#Then, the output should be:
+#500
+
+def CheckInput(valueInput):
+    highDeposit = 68
+    highWithdraw = 87
+    lowDigit = 47
+    highDigit = 58
+    #integers are 48 - 57, testing is done between the numbers
+    listInput = valueInput.split()
+    for n in range (0, len(listInput)):
+        listInput[n] = listInput[n].strip()
+    if (len(listInput)%2 ==0):
+        for i in range(0, len(listInput)//2):
+            if (ord(listInput[2*i]) != highDeposit) and (ord(listInput[2*i]) != highWithdraw):
+                print("input was not valid, no withdraw or deposit, exiting")
+                return False
+            else:
+                for j in range(0, len(listInput[2*i+1])):
+                     if (not(ord(listInput[2*i+1][j]) > lowDigit) and not(ord(listInput[2*i+1][j]) < highDigit)):
+                         print("deposits or withdrawals were not numeric, exiting")
+                         return False
+                     else:
+                         continue
+                continue
+        return True
+    else:
+        print("input was not valid split resulted in non-even input, exiting")
+        return False
+
+def main():
+    highDeposit = 68
+    highWithdraw = 87
+    lowDigit = 47
+    highDigit = 58
+    account = 0
+    #integers are 48 - 57, testing is done between the numbers
+    print("Please input the log file with (D) or withdrawing (W) with the amount after a single space")
+    print("for example: 'W 300 D 500' etc.")
+    fileLocation = input()
+    openFile = open(fileLocation, "r")
+    #print ("reading from " + fileLocation)
+    actualFile = openFile.readlines()
+    lineFile = []
+    for line in actualFile:
+        lineFile.append(line)
+
+    for i in lineFile:
+        valueInput = ' '.join(lineFile)
+    #print(valueInput)
+    
+    #print("printing input: " + valueInput)
+    if not(CheckInput(valueInput)):
+        print("input was invalid, exiting")
+        return False
+  
+    listInput = valueInput.split()
+    for n in range (0, len(listInput)):
+        listInput[n] = listInput[n].strip()
+    #    print(listInput[n])
+    if (len(listInput)%2 ==0):
+        for i in range(0, len(listInput)//2):
+            deposit = False
+            if (ord(listInput[2*i]) == highDeposit):
+                deposit = True
+            elif (ord(listInput[2*i]) == highWithdraw):
+                deposit = False
+            else:
+                print("there may be an invalid input, exiting")
+                break
+            #print("account is " + str(account))
+            
+            if (deposit):
+                account += int(listInput[2*i+1])
+                #print(listInput[2*i+1] + " was deposited into the account")
+            elif not(deposit):
+                account = account - int(listInput[2*i+1])
+                #print(listInput[2*i+1] + " was withdrawn from the account")
+            else:
+                print("something went very wrong, exiting")
+                break
+            continue
+    else:
+        print("input was not valid split resulted in non-even input, exiting")
+        return False
+    #print("the value of the account was ")
+    print(account)
+
+main()
