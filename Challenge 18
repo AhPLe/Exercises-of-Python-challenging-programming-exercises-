@@ -1,0 +1,103 @@
+#Question 18
+#Level 3
+
+#Question:
+#A website requires the users to input username and password to register.
+#Write a program to check the validity of password input by users.
+#Following are the criteria for checking the password:
+#1. At least 1 letter between [a-z]
+#2. At least 1 number between [0-9]
+#1. At least 1 letter between [A-Z]
+#3. At least 1 character from [$#@]
+#4. Minimum length of transaction password: 6
+#5. Maximum length of transaction password: 12
+#Your program should accept a sequence of comma separated passwords and will check them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma.
+#Example
+#If the following passwords are given as input to the program:
+#ABd1234@1,a F1#,2w3E*,2We3345
+#Then, the output of the program should be:
+#ABd1234@1
+
+import importlib
+import TestingInput
+
+hasLetter = False
+hasCap = False
+hasNumber = False
+hasOtherChar = False
+minLength = 6
+maxLength = 12
+
+letterLow = 97
+letterHigh = 122
+capLow = 65
+capHigh = 90
+numberLow = 48
+numberHigh = 57
+commaOrd = 44
+otherChar = [36, 35, 64]
+print("provide passwords in a comma-separated string")
+print("passwords should contain at least one lower-case, one upper-case, \
+one number, and one extra charater $#@ only")
+print("passwords must contain between 6 and 12 characters")
+valueInput = input()
+valueList = valueInput.split(",")
+decrement = 0
+
+for i in range (0, len(valueList)):
+    valueList[i] = valueList[i].strip()
+finalList = []
+flagBreak = False
+
+for i in range (0, len(valueList)):
+    flagBreaki = False
+    hasLetter = False
+    hasCap = False
+    hasNumber = False
+    hasOtherChar = False
+
+    if (len(valueList[i]) < minLength) or (len(valueList[i]) > maxLength ):
+        'input was too long or too short'
+        continue
+    else:
+        for j in range (0, len(valueList[i])):
+            flagContj = False
+            flagGoodString = True
+            
+            if (ord(valueList[i][j]) > letterLow - 1 and \
+                  ord(valueList[i][j]) < letterHigh + 1):
+                if (not hasLetter):
+                    hasLetter = True
+            elif (ord(valueList[i][j]) > capLow - 1 and \
+                                    ord(valueList[i][j]) < capHigh + 1):
+                if (not hasCap):
+                    hasCap = True
+            elif (ord(valueList[i][j]) > numberLow - 1 and \
+                                    ord(valueList[i][j]) < numberHigh + 1):
+                if (not hasNumber):
+                    hasNumber = True
+            else:
+                'file through other characters list'
+                for k in range (0, len(otherChar)):
+                    if (ord(valueList[i][j]) == otherChar[k]):
+                        hasOtherChar = True
+                        flagContj = True
+                        break
+                if not flagContj:
+                    flagGoodString = False
+                    'there is a wrong character'
+                    break
+            
+            if flagGoodString and j ==len(valueList[i]) - 1 and \
+                (hasLetter and hasCap and hasNumber and hasOtherChar):
+                'string is usable, adding to final list'
+                finalList.append(valueList[i])
+
+finalPrint = ""
+for i in range(0, len(finalList)):
+    finalPrint = finalPrint + ", " + str(finalList[i])
+finalPrint = finalPrint.strip(", ")
+print(finalPrint)
+                        
+                
+
