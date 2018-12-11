@@ -1,0 +1,45 @@
+#Question 20
+#Level 3
+
+#Question:
+#Define a class with a generator which can iterate the numbers,
+#which are divisible by 7, between a given range 0 and n.
+
+'this function needs some variable definition syntax'
+'syntax for returning and allowing functions to be fed some object'
+
+class modSeven:
+    
+
+    def getInput():
+        print("enter a number to stop iterating to find numbers divisible by 7")
+        valueInput = input()
+        return valueInput
+    
+    def checkInput(valueInput):
+        numberLow = 48
+        numberHigh = 57
+        goodInput = True
+        for i  in range(len(valueInput)):
+                        
+            if not (ord(valueInput[i]) > numberLow - 1 and ord(valueInput[i]) < numberHigh + 1):
+                'input is not a good input'
+                goodInput = False
+                print("input was not valid, exiting")
+        return goodInput
+    
+    def getMod7toMax(valueNum):
+
+        toPrint = ""
+        for i in range(valueNum + 1):
+            if i%7 == 0:
+                toPrint = toPrint + ", " + str(i)
+        toPrint = toPrint.strip(", ")
+        return (toPrint)
+    
+    def main():
+        valueInput = modSeven.getInput()
+        if (modSeven.checkInput(valueInput)):
+            print(modSeven.getMod7toMax(int(valueInput)))
+            
+modSeven.main()
